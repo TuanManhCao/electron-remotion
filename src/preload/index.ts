@@ -1,8 +1,14 @@
-import { contextBridge } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer
-const api = {}
+const api = {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  increaseCounter: async () => {
+    const value = await ipcRenderer.invoke('increase-counter')
+    return value
+  }
+}
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise
