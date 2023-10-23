@@ -4,7 +4,7 @@ declare global {
   interface Window {
     electron: ElectronAPI
     api: {
-      increaseCounter: () => Promise<number>
+      renderMedia: () => Promise<boolean>
     }
   }
 }

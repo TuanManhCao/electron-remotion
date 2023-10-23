@@ -4,8 +4,10 @@ import { electronAPI } from '@electron-toolkit/preload'
 // Custom APIs for renderer
 const api = {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  increaseCounter: async () => {
-    const value = await ipcRenderer.invoke('increase-counter')
+  renderMedia: async () => {
+    const value = await ipcRenderer.invoke('render-media')
+    console.log('value', value)
+
     return value
   }
 }
