@@ -6,7 +6,7 @@ export async function render() {
   const compositionId = 'MyComp'
   // You only have to create a bundle once, and you may reuse it
   const bundleLocation = await bundle({
-    entryPoint: path.resolve('./src/main/remotion/index.ts'),
+    entryPoint: path.resolve('./src/remotion/index.ts'),
     // If you have a Webpack override, make sure to add it here
     webpackOverride: (config) => config
   })

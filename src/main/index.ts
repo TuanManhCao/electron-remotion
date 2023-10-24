@@ -68,16 +68,9 @@ app.on('window-all-closed', () => {
   }
 })
 
-// In this file you can include the rest of your app"s specific main process
-// code. You can also put them in separate files and require them here.
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}
-
 ipcMain.handle('render-media', async () => {
   console.log('rendering media')
-  // await sleep(1000)
-  console.log('done rendering media')
   render()
+  console.log('done rendering media')
   return true
 })
