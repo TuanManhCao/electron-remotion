@@ -695,6 +695,18 @@
     style-loader "2.0.0"
     webpack "5.83.1"
 
+"@remotion/bundler@^4.0.54":
+  version "4.0.54"
+  resolved "https://registry.yarnpkg.com/@remotion/bundler/-/bundler-4.0.54.tgz#d08df6ee895778a61c370bdd195908ccc0f24a2a"
+  integrity sha512-WfNJDX5Sxsz7OgDrJdFxTUwdihyM+qMxV4ga6EOGS6hO5KO+TO1TJ8x59gOeX9hE43m6zvYUVhTc2eKjS/EdBQ==
+  dependencies:
+    css-loader "5.2.7"
+    esbuild "0.18.6"
+    react-refresh "0.9.0"
+    remotion "4.0.54"
+    style-loader "2.0.0"
+    webpack "5.83.1"
+
 "@remotion/cli@^4.0.53":
   version "4.0.53"
   resolved "https://registry.yarnpkg.com/@remotion/cli/-/cli-4.0.53.tgz#fa2464a869cb80a8cd3d2b7f88d182e119398fe4"
@@ -718,35 +730,70 @@
   resolved "https://registry.yarnpkg.com/@remotion/compositor-darwin-arm64/-/compositor-darwin-arm64-4.0.53.tgz#99045594d269a90d37ae6e85075c6e7ab392a77f"
   integrity sha512-sqt0gLWkWkpJ9SH+pze1Hof5CcxRvIqOKB0JLcwvcJ3TMjBkTSccQGZnINai3KjohkRxcVQdbhgffezx4x0Mdw==
 
+"@remotion/compositor-darwin-arm64@4.0.54":
+  version "4.0.54"
+  resolved "https://registry.yarnpkg.com/@remotion/compositor-darwin-arm64/-/compositor-darwin-arm64-4.0.54.tgz#6ad0c611cb7a47b6b9a5fbd6e392d1172fce17bb"
+  integrity sha512-1M7GHq+7As5N6KdjOwVCPVntdf3cYcQ33c5OenucEMjDmuCtuZlTmYnmAXn7NalKJqr+Q1QE2M6J/yYFVeO6BQ==
+
 "@remotion/compositor-darwin-x64@4.0.53":
   version "4.0.53"
   resolved "https://registry.yarnpkg.com/@remotion/compositor-darwin-x64/-/compositor-darwin-x64-4.0.53.tgz#27cfd711e12fe2e499ae56115f2eb9aadaea0351"
   integrity sha512-REIKm661ExiaCLZX4i/dIOy6ndUVru+17OXOmiyeSPwQzl3tUcckLlC0frLIlyS4YtvcQtZka+A9YhRThAwUvA==
+
+"@remotion/compositor-darwin-x64@4.0.54":
+  version "4.0.54"
+  resolved "https://registry.yarnpkg.com/@remotion/compositor-darwin-x64/-/compositor-darwin-x64-4.0.54.tgz#20c3e4d11b50f8584731c7c73152beced0917e2d"
+  integrity sha512-KUTq5Dj+vFnMOZqXLTezmuk7VpASNUN6+BWaGOjpEfJLNTx4fLQBu0bRiGQI2XN5l/ysNu12NnHGX6AVxaOTHA==
 
 "@remotion/compositor-linux-arm64-gnu@4.0.53":
   version "4.0.53"
   resolved "https://registry.yarnpkg.com/@remotion/compositor-linux-arm64-gnu/-/compositor-linux-arm64-gnu-4.0.53.tgz#9782a397ac76427db70144657974ba5ef732165f"
   integrity sha512-1AK2KYEtKrfj31m+1Y0l5fBkYRk5ANjjLnILD3cbDJ1W8xv8gOMQC85SKL/8x8hCUJsiIv4+VkK6jSmNi1VHsA==
 
+"@remotion/compositor-linux-arm64-gnu@4.0.54":
+  version "4.0.54"
+  resolved "https://registry.yarnpkg.com/@remotion/compositor-linux-arm64-gnu/-/compositor-linux-arm64-gnu-4.0.54.tgz#920224fb7cd2f4618287bfc548c32e44b7084d05"
+  integrity sha512-H6hAAOHPtslbcpT1DulwdfJHjfds8X6AxVbSPnuG1IsJU3lfKb0nKyeC3iR9Wk+L2o2nSThk7jKI0gSphKVlUg==
+
 "@remotion/compositor-linux-arm64-musl@4.0.53":
   version "4.0.53"
   resolved "https://registry.yarnpkg.com/@remotion/compositor-linux-arm64-musl/-/compositor-linux-arm64-musl-4.0.53.tgz#6108e865845320c7ef1321fd367cd16f3a2ee3e8"
   integrity sha512-w3e7v69s4BbGDbX/vtnf5/CXlT0QXUI0rTisSaFZhKDAgjLEanwHeTnfATPP81h7ZxpA2rEbWtUVV1d1XeWjTg==
+
+"@remotion/compositor-linux-arm64-musl@4.0.54":
+  version "4.0.54"
+  resolved "https://registry.yarnpkg.com/@remotion/compositor-linux-arm64-musl/-/compositor-linux-arm64-musl-4.0.54.tgz#c988d4151c84fb19fae2b023f1f904ad61dcc1ad"
+  integrity sha512-cW84a8tBOma6AtDNW7E4M5MTDgKh4KIRLIhEvV9yB6BZ7kWdh0kiExC45nncpa7bEKw0km90wzaUMI8BOPEMjw==
 
 "@remotion/compositor-linux-x64-gnu@4.0.53":
   version "4.0.53"
   resolved "https://registry.yarnpkg.com/@remotion/compositor-linux-x64-gnu/-/compositor-linux-x64-gnu-4.0.53.tgz#a2ac7ab07bbb27c5e3789868c969b67799b970ae"
   integrity sha512-tKF/LiwGks8lDG72mGRne1vQnZLUzfZr+liukekiwqtgYMBhx8vpeESeqtTsz5640lb47xNHpNyphjMlUyEjNQ==
 
+"@remotion/compositor-linux-x64-gnu@4.0.54":
+  version "4.0.54"
+  resolved "https://registry.yarnpkg.com/@remotion/compositor-linux-x64-gnu/-/compositor-linux-x64-gnu-4.0.54.tgz#8abc6174a6347a312a7dd924df488c17db68d794"
+  integrity sha512-vIJFCmjLjsUWnVPnXXFR/ISPSEHKM3nsCx0JraPgBOm41xErz8wO6Zb4nnl17GSa/Dxs5mY70UuAIcBD2m/hRQ==
+
 "@remotion/compositor-linux-x64-musl@4.0.53":
   version "4.0.53"
   resolved "https://registry.yarnpkg.com/@remotion/compositor-linux-x64-musl/-/compositor-linux-x64-musl-4.0.53.tgz#a0528b3bb758948358d414f9e64dca08f32a7498"
   integrity sha512-GhKOo8JfCnyXJkeso+tRArDtqi2hjhZmLGOJjj6PEv8BPXbCIMVD7F24BwWeXYYgEbAueLl23ODIHqLYrta/4Q==
 
+"@remotion/compositor-linux-x64-musl@4.0.54":
+  version "4.0.54"
+  resolved "https://registry.yarnpkg.com/@remotion/compositor-linux-x64-musl/-/compositor-linux-x64-musl-4.0.54.tgz#10d6e1e70c8a28a1c6739f348fd2a75a3a613c32"
+  integrity sha512-l8D+OG8WriZ13NPQNJDeC7JJZAt02NiDaBnDCxyO7q8DkDmPcLu5ScslTcyglQu3T55LTj5vPnzQAFVQiYYEYQ==
+
 "@remotion/compositor-win32-x64-msvc@4.0.53":
   version "4.0.53"
   resolved "https://registry.yarnpkg.com/@remotion/compositor-win32-x64-msvc/-/compositor-win32-x64-msvc-4.0.53.tgz#67b83fb58c5a1b65e702c5d09cde2db0d9f36727"
   integrity sha512-O+Wc0qYCZU3Gvh/6o4H9rFePnwzRNOtqwGOwfPtoEKV5r771LvU2rjl/HAAxmBHqGouQhNdiSOMO08Z6J2Wksw==
+
+"@remotion/compositor-win32-x64-msvc@4.0.54":
+  version "4.0.54"
+  resolved "https://registry.yarnpkg.com/@remotion/compositor-win32-x64-msvc/-/compositor-win32-x64-msvc-4.0.54.tgz#cdb5340e2a3a72e337dd603a03526455be088534"
+  integrity sha512-8w2nS3YP+lvQFHUwRm9rcm2Tn3txRxdkFQDhFFthmLwDf2M6qePO7JTv+Znsiuf5qJIN6kaTx3MWKDIsfAnL9w==
 
 "@remotion/media-utils@4.0.53":
   version "4.0.53"
@@ -780,6 +827,25 @@
     "@remotion/compositor-linux-x64-gnu" "4.0.53"
     "@remotion/compositor-linux-x64-musl" "4.0.53"
     "@remotion/compositor-win32-x64-msvc" "4.0.53"
+
+"@remotion/renderer@^4.0.54":
+  version "4.0.54"
+  resolved "https://registry.yarnpkg.com/@remotion/renderer/-/renderer-4.0.54.tgz#fd1027e8bbacf4b4b9ed9ab5a11ce61d2d9d968b"
+  integrity sha512-VTQ+aidsGrcvDOxpQFTEzEcBlPhPpOCyp/HebtE0yTqxgMqfyCj0+0Fn52YnNBlwXrQe73KftfRQLel0hT7Scw==
+  dependencies:
+    execa "5.1.1"
+    extract-zip "2.0.1"
+    remotion "4.0.54"
+    source-map "^0.8.0-beta.0"
+    ws "8.7.0"
+  optionalDependencies:
+    "@remotion/compositor-darwin-arm64" "4.0.54"
+    "@remotion/compositor-darwin-x64" "4.0.54"
+    "@remotion/compositor-linux-arm64-gnu" "4.0.54"
+    "@remotion/compositor-linux-arm64-musl" "4.0.54"
+    "@remotion/compositor-linux-x64-gnu" "4.0.54"
+    "@remotion/compositor-linux-x64-musl" "4.0.54"
+    "@remotion/compositor-win32-x64-msvc" "4.0.54"
 
 "@sindresorhus/is@^4.0.0":
   version "4.6.0"
@@ -3854,6 +3920,11 @@ remotion@4.0.53, remotion@^4.0.53:
   version "4.0.53"
   resolved "https://registry.yarnpkg.com/remotion/-/remotion-4.0.53.tgz#be79e52eafe4076de5b2c626881c937e6cbb13e6"
   integrity sha512-7z7xtlm55T9b/2A0Gvmasg4oJXnzB/9ER9nIcGt1qFZBzdW9O7TVf04P87t6oEFKefaz8NLUqFjhOvHFnX+oOA==
+
+remotion@4.0.54:
+  version "4.0.54"
+  resolved "https://registry.yarnpkg.com/remotion/-/remotion-4.0.54.tgz#6bf4cc85d55c7e152d7a1a10fb936bb39c1d62d7"
+  integrity sha512-2y2vBISHcbtNNwZsPAsjpPvYTkEeuIudkk7hCurCpUTLfFiSJhuIhUqavy6R9J/Cloh/JKA/Bb0jdUydCv4fqQ==
 
 require-directory@^2.1.1:
   version "2.1.1"

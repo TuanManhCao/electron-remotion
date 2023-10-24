@@ -2,6 +2,7 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import { render } from './renderMedia'
 
 function createWindow(): void {
   // Create the browser window.
@@ -75,7 +76,8 @@ function sleep(ms: number): Promise<void> {
 
 ipcMain.handle('render-media', async () => {
   console.log('rendering media')
-  await sleep(1000)
+  // await sleep(1000)
   console.log('done rendering media')
+  render()
   return true
 })
