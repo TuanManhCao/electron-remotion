@@ -1,5 +1,6 @@
-import {bundle } from '@remotion/bundler'
+import { bundle } from '@remotion/bundler'
 import { renderMedia, selectComposition } from '@remotion/renderer'
+import { shell } from 'electron'
 import path from 'path'
 // The composition you want to render
 export async function render() {
@@ -30,5 +31,6 @@ export async function render() {
     outputLocation: `out/${compositionId}.mp4`,
     inputProps
   })
+  shell.showItemInFolder(`out/${compositionId}.mp4`)
   console.log('Render done!')
 }
