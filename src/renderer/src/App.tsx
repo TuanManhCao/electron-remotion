@@ -32,7 +32,7 @@ function App(): JSX.Element {
           setIsLoading(false)
         }}
       >
-        {isLoading ? 'Loading...' : 'Render Media'}
+        {isLoading ? 'Rendering...' : 'Render Media'}
       </button>
       <br />
       {rendered && <h1>Rendered!</h1>}

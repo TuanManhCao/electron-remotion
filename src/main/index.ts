@@ -70,7 +70,7 @@ app.on('window-all-closed', () => {
 
 ipcMain.handle('render-media', async () => {
   console.log('rendering media')
-  render()
+  await render()
   console.log('done rendering media')
   return true
 })
