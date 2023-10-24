@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { Player } from '@remotion/player'
 import { MyComposition } from '../../remotion/Composition'
 function App(): JSX.Element {
-  const [rendered, setRendered] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   return (
     <div className="container">
@@ -27,7 +26,6 @@ function App(): JSX.Element {
         onClick={async () => {
           setIsLoading(true)
           const isRendered = await window.api.renderMedia()
-          setRendered(isRendered)
           console.log(`Render value: ${isRendered}`)
           setIsLoading(false)
         }}
@@ -35,7 +33,6 @@ function App(): JSX.Element {
         {isLoading ? 'Rendering...' : 'Render Media'}
       </button>
       <br />
-      {rendered && <h1>Rendered!</h1>}
     </div>
   )
 }
