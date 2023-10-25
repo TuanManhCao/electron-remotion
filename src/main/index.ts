@@ -58,6 +58,9 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 })
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
@@ -70,7 +73,18 @@ app.on('window-all-closed', () => {
 
 ipcMain.handle('render-media', async () => {
   console.log('rendering media')
-  await render()
-  console.log('done rendering media')
-  return true
+  try {
+    await render()
+    return {
+      status: 'success',
+      message: 'OK...'
+    }
+  } catch (error) {
+    return {
+      status: 'error',
+      message: JSON.stringify(error, Object.getOwnPropertyNames(error))
+    }
+  }
+  // await sleep(2000)
+  // console.log('done rendering media')
 })

@@ -2,6 +2,10 @@
 import { useState } from 'react'
 import { Player } from '@remotion/player'
 import { MyComposition } from '../../remotion/Composition'
+type Data = {
+  status: 'error' | 'success',
+  message: string
+}
 function App(): JSX.Element {
   const [isLoading, setIsLoading] = useState(false)
   return (
@@ -25,8 +29,13 @@ function App(): JSX.Element {
         style={{ marginTop: '1rem', marginBottom: '1rem', padding: '1rem', fontSize: '1.5rem' }}
         onClick={async () => {
           setIsLoading(true)
-          const isRendered = await window.api.renderMedia()
-          console.log(`Render value: ${isRendered}`)
+          const data: Data = await window.api.renderMedia() as unknown as Data
+          if (data.status === 'error') {
+            console.log('Errror: ', data.message)
+          } else {
+            console.log('OKKKKK: ', data.message)
+          }
+
           setIsLoading(false)
         }}
       >

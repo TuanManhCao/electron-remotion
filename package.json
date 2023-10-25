@@ -12,12 +12,13 @@
     "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
     "typecheck": "npm run typecheck:node && npm run typecheck:web",
     "start": "electron-vite preview",
-    "dev": "electron-vite dev",
-    "build": "npm run typecheck && electron-vite build",
+    "dev": "npm run bundle-remotion && electron-vite dev",
+    "build": "npm run bundle-remotion && npm run typecheck && electron-vite build",
     "postinstall": "electron-builder install-app-deps",
-    "build:win": "npm run build && electron-builder --win --config",
-    "build:mac": "electron-vite build && electron-builder --mac --config",
-    "build:linux": "electron-vite build && electron-builder --linux --config"
+    "build:win": "npm run bundle-remotion && npm run build && electron-builder --win --config",
+    "build:mac": "npm run bundle-remotion && electron-vite build && electron-builder --mac --config",
+    "build:linux": "npm run bundle-remotion && electron-vite build && electron-builder --linux --config",
+    "bundle-remotion": "node src/main/bundle-remotion.js"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^2.0.0",
@@ -27,7 +28,9 @@
     "@remotion/player": "^4.0.54",
     "@remotion/renderer": "^4.0.54",
     "electron-updater": "^6.1.1",
-    "remotion": "^4.0.54"
+    "remotion": "^4.0.54",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "^1.0.1",
@@ -43,8 +46,6 @@
     "eslint": "^8.47.0",
     "eslint-plugin-react": "^7.33.2",
     "prettier": "^3.0.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "typescript": "^5.1.6",
     "vite": "^4.4.9"
   }
