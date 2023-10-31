@@ -14,8 +14,10 @@ export async function render() {
   }
   // Get the composition you want to render. Pass `inputProps` if you
   // want to customize the duration or other metadata.
+  const homeDirectory = os.homedir()
+  const bundled = path.join(homeDirectory, 'Downloads/remotion-bundle/')
   const composition = await selectComposition({
-    serveUrl: path.resolve('out/remotion-bundle'),
+    serveUrl: bundled,
     id: compositionId,
     inputProps
   })
@@ -23,11 +25,12 @@ export async function render() {
 
   // Render the video. Pass the same `inputProps` again
   // if your video is parametrized with data.
-  const homeDirectory = os.homedir()
+
   const downloadsFolderPath = path.join(homeDirectory, 'Downloads/output.mp4')
+
   await renderMedia({
     composition,
-    serveUrl: path.resolve('out/remotion-bundle'),
+    serveUrl: bundled,
     codec: 'h264',
     outputLocation: downloadsFolderPath,
     inputProps
