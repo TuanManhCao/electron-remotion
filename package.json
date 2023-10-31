@@ -12,7 +12,7 @@
     "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
     "typecheck": "npm run typecheck:node && npm run typecheck:web",
     "start": "electron-vite preview",
-    "dev": "npm run bundle-remotion && electron-vite dev",
+    "dev": "ELECTRON_DEV_MODE=true && npm run bundle-remotion && electron-vite dev",
     "build": "npm run bundle-remotion && npm run typecheck && electron-vite build",
     "postinstall": "electron-builder install-app-deps",
     "build:win": "npm run bundle-remotion && npm run build && electron-builder --win --config",
@@ -23,14 +23,14 @@
   "dependencies": {
     "@electron-toolkit/preload": "^2.0.0",
     "@electron-toolkit/utils": "^2.0.0",
-    "@remotion/bundler": "^4.0.54",
-    "@remotion/cli": "^4.0.54",
-    "@remotion/player": "^4.0.54",
-    "@remotion/renderer": "^4.0.54",
+    "@remotion/bundler": "^4.0.59",
+    "@remotion/cli": "^4.0.59",
+    "@remotion/player": "^4.0.59",
+    "@remotion/renderer": "patch:@remotion/renderer@npm%3A4.0.59#~/.yarn/patches/@remotion-renderer-npm-4.0.59-e86b3fce76.patch",
     "electron-updater": "^6.1.1",
-    "remotion": "^4.0.54",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "remotion": "^4.0.59"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "^1.0.1",
@@ -48,5 +48,9 @@
     "prettier": "^3.0.2",
     "typescript": "^5.1.6",
     "vite": "^4.4.9"
+  },
+  "packageManager": "yarn@4.0.1",
+  "resolutions": {
+    "@remotion/renderer@npm:4.0.59": "patch:@remotion/renderer@npm%3A4.0.59#~/.yarn/patches/@remotion-renderer-npm-4.0.59-e86b3fce76.patch"
   }
 }

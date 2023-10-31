@@ -1,0 +1,109 @@
+diff --git a/dist/compositor/get-executable-path.js b/dist/compositor/get-executable-path.js
+index 3972d6271c5d738c6f86586a7f99c5f4d2969b6c..83f30e0e247ffcf83bf31cc100ade52ee5628692 100644
+--- a/dist/compositor/get-executable-path.js
++++ b/dist/compositor/get-executable-path.js
+@@ -1,25 +1,25 @@
+-"use strict";
++"use strict"
++const path = require('path')
+ // Adapted from @swc/core package
+-Object.defineProperty(exports, "__esModule", { value: true });
+-exports.getExecutablePath = void 0;
+-const logger_1 = require("../logger");
+-let warned = false;
+-function isMusl({ indent, logLevel }) {
+-    // @ts-expect-error bun no types
+-    if (!process.report && typeof Bun !== 'undefined') {
+-        if (!warned) {
+-            logger_1.Log.warn({ indent, logLevel }, 'Bun limitation: Could not determine if your Linux is using musl or glibc. Assuming glibc.');
+-        }
+-        warned = true;
+-        return false;
+-    }
++Object.defineProperty(exports, "__esModule", { value: true })
++
++exports.getExecutablePath = void 0
++
++function unpackPath(originalPath) {
++    const isDev = process.env.ELECTRON_DEV_MODE
++    if (isDev) return originalPath
++
++    return path.join(process.resourcesPath, `app.asar.unpacked/node_modules/${originalPath}`)
++}
++
++function isMusl() {
+     // @ts-expect-error no types
+-    const { glibcVersionRuntime } = process.report.getReport().header;
+-    return !glibcVersionRuntime;
++    const { glibcVersionRuntime } = process.report.getReport().header
++    return !glibcVersionRuntime
+ }
+-const getExecutablePath = (type, indent, logLevel) => {
++const getExecutablePath = (type) => {
+     if (type === 'compositor' && process.env.COMPOSITOR_PATH) {
+-        return process.env.COMPOSITOR_PATH;
++        return process.env.COMPOSITOR_PATH
+     }
+     const key = type === 'compositor'
+         ? 'binaryPath'
+@@ -27,43 +27,41 @@ const getExecutablePath = (type, indent, logLevel) => {
+             ? 'ffmpegPath'
+             : type === 'ffprobe'
+                 ? 'ffprobePath'
+-                : 'ffmpegCwd';
++                : 'ffmpegCwd'
+     switch (process.platform) {
+         case 'win32':
+             switch (process.arch) {
+                 case 'x64':
+-                    return require('@remotion/compositor-win32-x64-msvc')[key];
++                    return require(unpackPath('@remotion/compositor-win32-x64-msvc'))[key]
+                 default:
+-                    throw new Error(`Unsupported architecture on Windows: ${process.arch}`);
++                    throw new Error(`Unsupported architecture on Windows: ${process.arch}`)
+             }
+         case 'darwin':
+             switch (process.arch) {
+                 case 'x64':
+-                    return require('@remotion/compositor-darwin-x64')[key];
++                    return require(unpackPath('@remotion/compositor-darwin-x64'))[key]
+                 case 'arm64':
+-                    return require('@remotion/compositor-darwin-arm64')[key];
++                    return require(unpackPath('@remotion/compositor-darwin-arm64'))[key]
+                 default:
+-                    throw new Error(`Unsupported architecture on macOS: ${process.arch}`);
++                    throw new Error(`Unsupported architecture on macOS: ${process.arch}`)
+             }
+-        case 'linux': {
+-            const musl = isMusl({ indent, logLevel });
++        case 'linux':
+             switch (process.arch) {
+                 case 'x64':
+-                    if (musl) {
+-                        return require('@remotion/compositor-linux-x64-musl')[key];
++                    if (isMusl()) {
++                        return require(unpackPath('@remotion/compositor-linux-x64-musl'))[key]
+                     }
+-                    return require('@remotion/compositor-linux-x64-gnu')[key];
++                    return require(unpackPath('@remotion/compositor-linux-x64-gnu'))[key]
+                 case 'arm64':
+-                    if (musl) {
+-                        return require('@remotion/compositor-linux-arm64-musl')[key];
++                    if (isMusl()) {
++                        return require(unpackPath('@remotion/compositor-linux-arm64-musl'))[key]
+                     }
+-                    return require('@remotion/compositor-linux-arm64-gnu')[key];
++                    return require(unpackPath('@remotion/compositor-linux-arm64-gnu'))[key]
+                 default:
+-                    throw new Error(`Unsupported architecture on Linux: ${process.arch}`);
++                    throw new Error(`Unsupported architecture on Linux: ${process.arch}`)
+             }
+-        }
+         default:
+-            throw new Error(`Unsupported OS: ${process.platform}, architecture: ${process.arch}`);
++            throw new Error(`Unsupported OS: ${process.platform}, architecture: ${process.arch}`)
+     }
+-};
+-exports.getExecutablePath = getExecutablePath;
++}
++exports.getExecutablePath = getExecutablePath
